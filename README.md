@@ -14,7 +14,7 @@ git fetch --> Sirve para actualizar el repositorio local con respecto al remoto
 
 git pull --> Sirve para bajar los cambios del repositorio remoto al local
 
-git Add -A --> Sirve para agregar los nuevos cambios al repositorio local
+git add -A --> Sirve para agregar los nuevos cambios al repositorio local
 
 git commit -m "comentario" --> Sirve para agregar un commit o comentario al cambio realizado
 
