@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ProyectoDsm</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home_fragment">HOME</string>
+    <string name="create_exam_fragment">CREATE EXAM</string>
 </resources>
