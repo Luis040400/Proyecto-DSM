@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginPrincipal">
+
+    <TextView
+        android:id="@+id/txtvTittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="32dp"
+        android:hint="@string/txtvTittle"
+        android:textColor="#363738"
+        android:textColorHint="#363738"
+        android:textSize="44sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnLine"
+        android:layout_width="300dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
+        android:width="100dp"
+        android:height="1dp"
+        android:backgroundTint="#8792a1"
+        android:shadowColor="#090909"
+        android:textColorHint="@color/black"
+        android:textColorLink="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtvTittle"
+        app:strokeColor="#0C0C0C" />
+
+    <ImageButton
+        android:id="@+id/imgudb"
+        android:layout_width="227dp"
+        android:layout_height="244dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#ffffff"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLine"
+        app:srcCompat="@drawable/udb" />
+
+    <TextView
+        android:id="@+id/txtvIniciarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="115dp"
+        android:hint="@string/txtvIniciarsesion"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgudb" />
+
+    <Button
+        android:id="@+id/btnSesionAlumno"
+        android:layout_width="279dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="27dp"
+        android:backgroundTint="#7fadeb"
+        android:hint="@string/btnSesionAlumno"
+        android:textColorHint="#363738"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtvIniciarSesion" />
+
+    <Button
+        android:id="@+id/btbnLine2"
+        android:layout_width="300dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#8792a1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSesionAlumno" />
+
+    <Button
+        android:id="@+id/btnSesionMaestro"
+        android:layout_width="279dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="22dp"
+        android:backgroundTint="#1d64c2"
+        android:hint="@string/btnSesionMaestro"
+        android:textColorHint="#d9e8fc"
+        android:textSize="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btbnLine2" />
+
+    <TextView
+        android:id="@+id/txtvfooter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:hint="@string/footer"
+        android:textAlignment="center"
+        android:textColorHint="#8792a1"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSesionMaestro" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,4 +5,19 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="home_fragment">HOME</string>
     <string name="create_exam_fragment">CREATE EXAM</string>
+
+    //Principal
+    <string name="txtvTittle">UDB Test</string>
+    <string name="txtvIniciarsesion">Iniciar sesion como:</string>
+    <string name="btnSesionAlumno">Alumno</string>
+    <string name="btnSesionMaestro">Maestro</string>
+    <string name="footer">UDB Test | Desarrollo de Software para Moviles</string>
+
+    //Maestro
+    <string name="txtvusuario">USUARIO</string>
+    <string name="txtUserName">ingrese su usuaio</string>
+    <string name="txtPasswors">ingrese su contraseña</string>
+    <string name="txtvPassword">CONTRASEÑA</string>
+    <string name="txtvOlvisadetuPassword">Olvidaste tu contraseña?</string>
+    <string name="btnIniciarSesion">Iniciar Sesion</string>
 </resources>
