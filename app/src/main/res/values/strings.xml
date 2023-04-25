@@ -15,7 +15,7 @@
 
     //Maestro
     <string name="txtvusuario">USUARIO</string>
-    <string name="txtUserName">ingrese su usuaio</string>
+    <string name="txtUserName">ingrese su e-mail</string>
     <string name="txtPasswors">ingrese su contraseña</string>
     <string name="txtvPassword">CONTRASEÑA</string>
     <string name="txtvOlvisadetuPassword">Olvidaste tu contraseña?</string>
