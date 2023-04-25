@@ -1,8 +1,12 @@
 package com.example.proyectodsm
 
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
@@ -13,11 +17,12 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var toogle: ActionBarDrawerToggle
     lateinit var drawerLayout: DrawerLayout
+
+    lateinit var spCantidadPreguntas: Spinner
+    lateinit var spCantidadTiempo: Spinner
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val homeFragment = HomeFragment()
 
         drawerLayout = findViewById(R.id.drawerLayout)
         val navView: NavigationView = findViewById(R.id.nav_view)
@@ -38,7 +43,22 @@ class MainActivity : AppCompatActivity() {
 
             when (it.itemId) {
                 R.id.nav_home -> replaceFregment(HomeFragment(),it.title.toString())
-                R.id.nav_create_exam -> replaceFregment(CreateExamFragment(),it.title.toString())
+                R.id.nav_create_exam -> {
+                    val dialog = Dialog(this)
+                    dialog.setContentView(R.layout.dialog_input)
+
+                    spCantidadPreguntas = dialog.findViewById(R.id.spCantidadPreguntas)
+                    spCantidadTiempo = dialog.findViewById(R.id.spTiempo)
+
+                    dialog.findViewById<Button>(R.id.buttonAceptar).setOnClickListener{
+                        dialog.dismiss()
+
+                        val fragment = CreateExamFragment(spCantidadPreguntas.selectedItem.toString().toInt(),spCantidadTiempo.selectedItem.toString().toInt())
+                        replaceFregment(fragment,"Titulo")
+                    }
+
+                    dialog.show()
+                }
                 R.id.nav_message -> Toast.makeText(applicationContext,"CLICKED MESSAGE",Toast.LENGTH_SHORT).show()
             }
             true

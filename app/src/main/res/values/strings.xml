@@ -20,4 +20,28 @@
     <string name="txtvPassword">CONTRASEÑA</string>
     <string name="txtvOlvisadetuPassword">Olvidaste tu contraseña?</string>
     <string name="btnIniciarSesion">Iniciar Sesion</string>
+
+
+    <string name="select_time">Seleccionar tiempo</string>
+    <string name="select_questions">Seleccionar cantidad de preguntas</string>
+
+    <string-array name="preguntas_cantidad">
+        <item>3</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+    </string-array>
+    <string-array name="tiempo_cantidad">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+    </string-array>
+    <string-array name="tipo_examen">
+        <item>Seleccione una opción</item>
+        <item>Selección Multiple</item>
+        <item>Verdadero o Falso</item>
+    </string-array>
 </resources>
