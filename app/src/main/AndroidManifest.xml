@@ -12,6 +12,12 @@
         android:theme="@style/Theme.ProyectoDsm"
         tools:targetApi="31">
         <activity
+            android:name=".DetallesExamen"
+            android:exported="false" />
+        <activity
+            android:name=".ListaAlumnos"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
