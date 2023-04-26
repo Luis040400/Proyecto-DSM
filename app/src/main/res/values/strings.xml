@@ -1,3 +1,47 @@
 <resources>
     <string name="app_name">ProyectoDsm</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home_fragment">HOME</string>
+    <string name="create_exam_fragment">CREATE EXAM</string>
+
+    //Principal
+    <string name="txtvTittle">UDB Test</string>
+    <string name="txtvIniciarsesion">Iniciar sesion como:</string>
+    <string name="btnSesionAlumno">Alumno</string>
+    <string name="btnSesionMaestro">Maestro</string>
+    <string name="footer">UDB Test | Desarrollo de Software para Moviles</string>
+
+    //Maestro
+    <string name="txtvusuario">USUARIO</string>
+    <string name="txtUserName">ingrese su usuaio</string>
+    <string name="txtPasswors">ingrese su contraseña</string>
+    <string name="txtvPassword">CONTRASEÑA</string>
+    <string name="txtvOlvisadetuPassword">Olvidaste tu contraseña?</string>
+    <string name="btnIniciarSesion">Iniciar Sesion</string>
+
+
+    <string name="select_time">Seleccionar tiempo</string>
+    <string name="select_questions">Seleccionar cantidad de preguntas</string>
+
+    <string-array name="preguntas_cantidad">
+        <item>3</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+    </string-array>
+    <string-array name="tiempo_cantidad">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+    </string-array>
+    <string-array name="tipo_examen">
+        <item>Seleccione una opción</item>
+        <item>Selección Multiple</item>
+        <item>Verdadero o Falso</item>
+    </string-array>
 </resources>

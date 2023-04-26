@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginPrincipal"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center">
+
+
+    <TextView
+        android:id="@+id/txtvTittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/txtvTittle"
+        android:textColor="#363738"
+        android:textColorHint="#363738"
+        android:textSize="44sp" />
+
+    <Button
+        android:id="@+id/btnLine"
+        android:layout_width="300dp"
+        android:layout_height="10dp"
+        android:width="100dp"
+        android:height="1dp"
+        android:backgroundTint="#8792a1"
+        android:shadowColor="#090909"
+        android:textColorHint="@color/black"
+        android:textColorLink="@color/black"
+        app:strokeColor="#0C0C0C" />
+
+    <ImageButton
+        android:id="@+id/imgudb"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:backgroundTint="#ffffff"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/udb" />
+
+    <TextView
+        android:id="@+id/txtvIniciarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/txtvIniciarsesion"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnSesionAlumno"
+        android:layout_width="279dp"
+        android:layout_height="69dp"
+        android:backgroundTint="#7fadeb"
+        android:hint="@string/btnSesionAlumno"
+        android:textColorHint="#363738"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/btbnLine2"
+        android:layout_width="300dp"
+        android:layout_height="10dp"
+        android:backgroundTint="#8792a1" />
+
+    <Button
+        android:id="@+id/btnSesionMaestro"
+        android:layout_width="279dp"
+        android:layout_height="69dp"
+        android:backgroundTint="#1d64c2"
+        android:hint="@string/btnSesionMaestro"
+        android:textColorHint="#d9e8fc"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/txtvfooter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/footer"
+        android:textAlignment="center"
+        android:textColorHint="#8792a1"
+        android:layout_marginTop="12dp"
+        android:textSize="20dp" />
+
+</LinearLayout>
