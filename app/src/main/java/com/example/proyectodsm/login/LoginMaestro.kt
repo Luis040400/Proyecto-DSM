@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.proyectodsm.MainActivity
 import com.example.proyectodsm.R
 import com.google.firebase.auth.FirebaseAuth
 
@@ -47,12 +48,12 @@ class LoginMaestro : AppCompatActivity() {
     {
         auth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
             if(task.isSuccessful){
-                Toast.makeText(this, "Acceso Exitoso", Toast.LENGTH_LONG).show()
+                val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
             }
 
         }.addOnFailureListener { exception ->
-            Log.d("error:", exception.toString())
-            Log.d("usuario:", email+password)
+            Toast.makeText(this, "Error al iniciar $exception", Toast.LENGTH_LONG).show()
         }
     }
 
