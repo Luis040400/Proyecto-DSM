@@ -78,10 +78,11 @@
             android:id="@+id/txtvpassolvidada"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="5dp"
+            android:layout_marginTop="30dp"
             android:hint="@string/txtvOlvisadetuPassword"
             android:textColorHint="#363738"
             android:textStyle="normal|bold" />
+
         <Button
             android:id="@+id/btnIniciarSesion"
             android:layout_width="234dp"
