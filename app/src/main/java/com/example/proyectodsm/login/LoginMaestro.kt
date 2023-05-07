@@ -5,9 +5,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import com.example.proyectodsm.MainActivity
 import com.example.proyectodsm.R
@@ -33,11 +35,10 @@ class LoginMaestro : AppCompatActivity() {
         progressBar = ProgressDialog(this)
 
         val btnIniciarSecion = findViewById<Button>(R.id.btnIniciarSesion)
-
-
         btnIniciarSecion.setOnClickListener {
             login()
         }
+
 
     }
     private fun login() {

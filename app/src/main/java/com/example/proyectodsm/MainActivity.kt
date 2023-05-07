@@ -1,6 +1,7 @@
 package com.example.proyectodsm
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -106,5 +107,18 @@ class MainActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+
+    override fun onBackPressed() {
+
+            val builder = AlertDialog.Builder(this)
+            builder.setMessage("¿Estás seguro que quieres salir?")
+                .setCancelable(false)
+                .setPositiveButton("Salir") { _, _ -> finish() }
+                .setNegativeButton("Cancelar") { dialog, _ -> dialog.cancel() }
+            val alert = builder.create()
+            alert.show()
+
     }
 }
