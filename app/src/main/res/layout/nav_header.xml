@@ -2,31 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_marginTop="16dp"
     android:layout_marginStart="16dp"
-    android:background="@color/white">
+    android:layout_marginTop="16dp"
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tvuser_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/user_name"
         android:paddingTop="8dp"
-        android:textSize="20dp"
-        android:text="Robin Singla"
+        android:text=""
         android:textColor="@color/black"
+        android:textSize="15dp"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:text="cheleluis@gmail.com"
-        />
+        android:text="Maestro"
+        android:textSize="12sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp" />
 
 </LinearLayout>
