@@ -1,62 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#636262"
-    tools:context=".Pantalla_Onclick" >
+    android:background="#808080"
+    tools:context=".Pantalla_Onclick">
 
 
         <TextView
-            android:id="@+id/textView7"
-            android:layout_width="231dp"
-            android:layout_height="85dp"
-            android:layout_marginStart="104dp"
-            android:layout_marginTop="200dp"
-            android:layout_marginEnd="104dp"
-            android:layout_marginBottom="15dp"
+            android:id="@+id/textView"
+            android:layout_width="309dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="128dp"
             android:gravity="center_horizontal"
             android:text="Quieres realizar este examen ahora?"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@+id/checkBox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="130dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="140dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="141dp"
-            android:layout_marginBottom="30dp"
-            android:buttonTint="#37A83C"
+        <Button
+            android:id="@+id/button"
+            android:layout_width="163dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="440dp"
+            android:drawableLeft="@drawable/icono"
+            android:gravity="center_horizontal"
             android:text="Aceptar"
-            app:layout_constraintBottom_toTopOf="@+id/checkBox2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="127dp"
-            android:layout_height="66dp"
-            android:layout_marginStart="143dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="141dp"
-            android:layout_marginBottom="560dp"
-            android:backgroundTint="#374AB3"
-            android:backgroundTintMode="add"
-            android:buttonTint="#981515"
-            android:drawableTint="#3F52B8"
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="168dp"
+            android:layout_height="53dp"
+            android:layout_marginBottom="360dp"
+            android:drawableLeft="@drawable/icono1"
+            android:gravity="center_horizontal"
             android:text="Cancelar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+            app:layout_constraintStart_toStartOf="parent" />
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
