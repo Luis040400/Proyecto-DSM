@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import com.example.proyectodsm.MainActivity
 import com.example.proyectodsm.R
+import com.example.proyectodsm.alumno.ActivityExamen
 
 class LoginPrincipal : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,7 +17,9 @@ class LoginPrincipal : AppCompatActivity() {
         val btnMaestro = findViewById<Button>(R.id.btnSesionMaestro)
 
         btnAlumno.setOnClickListener {
-            Toast.makeText(this, "Iniciaste sesion como Alumno", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, ActivityExamen::class.java)
+            startActivity(intent)
+            finish()
         }
 
         btnMaestro.setOnClickListener {
