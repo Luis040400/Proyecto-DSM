@@ -38,7 +38,10 @@ class LoginMaestro : AppCompatActivity() {
         btnIniciarSecion.setOnClickListener {
             login()
         }
-
+        val olvidarPassword = findViewById<TextView>(R.id.txtvpassolvidada)
+        olvidarPassword.setOnClickListener {
+            ReestablecerPassword()
+        }
 
     }
     private fun login() {
@@ -46,7 +49,7 @@ class LoginMaestro : AppCompatActivity() {
             txtUsername.error="Campo requerido"
             txtPassword.error = "Campo requerido"
         }else{
-            if(!isValidEmail(txtUsername.text.toString().trim())){
+            if(!Patterns.EMAIL_ADDRESS.matcher(txtUsername.text.toString().trim()).matches()){
                 txtUsername.error="Correo no válido"
             }else{
                 progressBar.setMessage("Autenticando")
@@ -57,7 +60,7 @@ class LoginMaestro : AppCompatActivity() {
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                     }
-
+                    clear()
                 }.addOnFailureListener { exception ->
                     progressBar.hide()
                     Toast.makeText(this, "Error al iniciar $exception", Toast.LENGTH_LONG).show()
@@ -65,9 +68,24 @@ class LoginMaestro : AppCompatActivity() {
             }
         }
     }
-    private fun isValidEmail(email: String): Boolean {
-        val emailRegex = Regex("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z]{2,}$", RegexOption.IGNORE_CASE)
-        return emailRegex.matches(email)
+
+    private fun ReestablecerPassword()
+    {
+        auth.sendPasswordResetEmail(txtUsername.text.toString().trim()).addOnCompleteListener{ task ->
+            if(task.isSuccessful)
+            {
+                Toast.makeText(this, "Revisa tu correo", Toast.LENGTH_LONG).show()
+            }
+            else
+            {
+                Toast.makeText(this, "NO PASO NADA", Toast.LENGTH_LONG).show()
+            }
+        }
+
+    }
+    private fun clear(){
+        txtUsername.setText("")
+        txtPassword.setText("")
     }
 
     override fun onBackPressed() {
