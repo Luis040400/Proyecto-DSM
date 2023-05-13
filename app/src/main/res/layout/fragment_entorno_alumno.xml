@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3A3939"
+    tools:context=".EntornoAlumno">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="309dp"
+            android:layout_height="77dp"
+            android:gravity="center_horizontal"
+            android:text="UDB Test"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="178dp"
+            android:layout_height="35dp"
+            android:gravity="center_horizontal"
+            android:text="Nombre Del Estudiante:"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#BDBCBC"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="178dp"
+            android:layout_height="35dp"
+            android:gravity="center_horizontal"
+            android:text="Codigo De Examen:"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#BDBCBC"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal"
+            android:onClick='.Pantalla_Onclick'
+            android:text="Comenzar Examen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName1"
+            tools:ignore="OnClick" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
