@@ -47,7 +47,7 @@ class ExamActivity : AppCompatActivity() {
 
     private lateinit var containerPreguntra: LinearLayout
     private lateinit var containerRespuesta: LinearLayout
-
+    private var countDownTimer: CountDownTimer? = null
     private val respuestaList = mutableListOf<Answers>()
 
     private lateinit var btnNext: Button
@@ -133,6 +133,7 @@ class ExamActivity : AppCompatActivity() {
                 for (resultado in snapshot.children) {
                     resultado.ref.child("listResults").push().setValue(listResults)
                         .addOnCompleteListener {
+                            detenerContador()
                             Toast.makeText(
                                 this@ExamActivity,
                                 "Resultados Guardados",
@@ -141,13 +142,13 @@ class ExamActivity : AppCompatActivity() {
                             val dialog = Dialog(this@ExamActivity)
                             dialog.setContentView(R.layout.dialog_score)
                             dialog.findViewById<TextView>(R.id.tvNota).text = notaRedondeado.toString()
+                            dialog.show()
                             dialog.findViewById<Button>(R.id.btnContinuar).setOnClickListener {
                                 dialog.dismiss()
                                 val intent = Intent(this@ExamActivity,StudentLogin::class.java)
                                 startActivity(intent)
                                 finish()
                             }
-                            dialog.show()
                         }.addOnFailureListener {
                             Toast.makeText(
                                 this@ExamActivity,
@@ -216,10 +217,10 @@ class ExamActivity : AppCompatActivity() {
         var horas = tiempomio*60*60*1000
         var tiempoMiliSegundos = segundos+minutos
 
-        object: CountDownTimer(tiempoMiliSegundos,1000){
+        countDownTimer = object: CountDownTimer(tiempoMiliSegundos,1000){
             override fun onFinish() {
-                finishExam()
                 this.cancel()
+                finishExam()
             }
 
             override fun onTick(milisUntilFinished:Long) {
@@ -235,6 +236,9 @@ class ExamActivity : AppCompatActivity() {
 
     }
 
+    private fun detenerContador(){
+        countDownTimer?.cancel()
+    }
     fun mostrarPregunta() {
         radioGroup.clearCheck()
         if (currentQuestionIndex > preguntasLis.size - 1) {
@@ -254,6 +258,10 @@ class ExamActivity : AppCompatActivity() {
                 containerPreguntra.visibility = View.VISIBLE
                 containerRespuesta.visibility = View.VISIBLE
             } else if (preguntasLis[currentQuestionIndex].tipo == "Selección Multiple") {
+                radioOptionA.visibility = View.VISIBLE
+                radioOptionB.visibility = View.VISIBLE
+                radioOptionC.visibility = View.VISIBLE
+                radioOptionD.visibility = View.VISIBLE
                 radioOptionA.text = preguntasLis[currentQuestionIndex].oA
                 radioOptionB.text = preguntasLis[currentQuestionIndex].oB
                 radioOptionC.text = preguntasLis[currentQuestionIndex].oC
