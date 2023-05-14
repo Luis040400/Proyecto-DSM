@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ListView
+import androidx.fragment.app.FragmentManager
 import com.example.proyectodsm.Adapter.EstudianteAdapter
 import com.example.proyectodsm.model.Estudiante
 import com.google.firebase.database.*
@@ -39,7 +40,9 @@ class StudentsList : Fragment() {
         btnRegresar = view.findViewById(R.id.btnRegresar)
         dataRef = FirebaseDatabase.getInstance().getReference("resultados")
         query = dataRef.orderByChild("idExamen").equalTo(idExam)
-
+        btnRegresar.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
         return view
     }
 

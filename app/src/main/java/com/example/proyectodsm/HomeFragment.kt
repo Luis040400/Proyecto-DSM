@@ -151,8 +151,6 @@ class HomeFragment : Fragment(), AdapterHome.OnDeleteClickListener {
         fragmentTransaction.replace(R.id.frameLayout,fragment)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
-
-
     }
 
 }

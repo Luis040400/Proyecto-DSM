@@ -31,6 +31,7 @@ class ExamDetails : Fragment(), AdapterDetail.OnRegistroClickListener {
     lateinit var eTNombre: EditText
     lateinit var spTiempo: Spinner
     private lateinit var btnMostrarResultados: Button
+    private lateinit var btnRegresarHome: Button
     lateinit var btnGuardarCambios: Button
 
     var idExam: String = ""
@@ -50,6 +51,12 @@ class ExamDetails : Fragment(), AdapterDetail.OnRegistroClickListener {
         recyclerView = view.findViewById(R.id.detail_recyclerView)
         eTNombre = view.findViewById(R.id.eTNombreExam)
         spTiempo = view.findViewById(R.id.spTiempoExam)
+        btnRegresarHome = view.findViewById(R.id.btnRegresarHome)
+        btnRegresarHome.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.frameLayout,HomeFragment())
+                .commit()
+        }
         btnMostrarResultados = view.findViewById(R.id.btnMostrarResultados)
         btnMostrarResultados.setOnClickListener {
             moverAStudentList()
@@ -73,6 +80,7 @@ class ExamDetails : Fragment(), AdapterDetail.OnRegistroClickListener {
         studentList.arguments = args
         parentFragmentManager.beginTransaction()
             .replace(R.id.frameLayout, studentList)
+            .addToBackStack(null)
             .commit()
     }
 
