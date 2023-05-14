@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetallesExamen">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView"
@@ -63,7 +61,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="45dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnMostrarResultados"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardarCambiosExamen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +79,20 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.882" />
+        app:layout_constraintVertical_bias="0.912" />
+
+    <Button
+        android:id="@+id/btnRegresarHome"
+        android:layout_width="286dp"
+        android:layout_height="47dp"
+        android:backgroundTint="#3F51B5"
+        android:text="Volver a home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.979" />
 
     <Button
         android:id="@+id/btnGuardarCambiosExamen"
@@ -94,6 +105,6 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.956" />
+        app:layout_constraintVertical_bias="0.836" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
     tools:context=".StudentsList">
 
     <TextView
@@ -11,44 +13,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="LISTADO DE ALUMNOS"
+        android:layout_marginBottom="45dp"
         android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="286dp"
-        android:layout_height="47dp"
-        android:backgroundTint="#3F51B5"
-        android:text="REGRESAR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.956" />
+        android:textStyle="bold" />
 
     <RelativeLayout
-        android:layout_width="409dp"
-        android:layout_height="536dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="500dp">
 
         <ListView
             android:id="@+id/ListaExamen"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="-3dp"
-            android:layout_marginTop="-18dp"
-            android:padding="3dp"
-            android:scrollbars="vertical" />
+            android:layout_height="match_parent" />
     </RelativeLayout>
+    <Button
+        android:id="@+id/btnRegresar"
+        android:layout_width="286dp"
+        android:layout_height="47dp"
+        android:backgroundTint="#3F51B5"
+        android:layout_marginVertical="12dp"
+        android:text="REGRESAR" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
