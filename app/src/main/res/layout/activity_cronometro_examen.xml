@@ -7,7 +7,6 @@
     tools:context=".alumno.Cronometro_Examen">
 
     <TextView
-        android:id="@+id/txtvCronometro"
         android:layout_width="112dp"
         android:layout_height="78dp"
         android:layout_marginStart="52dp"

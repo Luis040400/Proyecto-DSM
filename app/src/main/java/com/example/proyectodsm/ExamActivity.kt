@@ -6,13 +6,10 @@ import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.example.proyectodsm.model.Answers
 import com.example.proyectodsm.model.ListResults
 import com.example.proyectodsm.model.Pregunta
@@ -37,7 +34,7 @@ class ExamActivity : AppCompatActivity() {
     var currentQuestion = ""
     var respuestaSeleccionada = ""
 
-
+    private lateinit var txtvCronometro:TextView
     private lateinit var mProgressBar: ProgressDialog
     private lateinit var tvExamName: TextView
     private lateinit var tvPregunta: TextView
@@ -77,6 +74,7 @@ class ExamActivity : AppCompatActivity() {
         radioOptionB = findViewById(R.id.optionB)
         radioOptionC = findViewById(R.id.optionC)
         radioOptionD = findViewById(R.id.optionD)
+        txtvCronometro = findViewById(R.id.txtvCronometro)
 
         containerPreguntra = findViewById(R.id.containerPregunta)
         containerRespuesta = findViewById(R.id.containerRespuesta)
@@ -200,7 +198,7 @@ class ExamActivity : AppCompatActivity() {
             porcentajePregunta = 10 / preguntasLis.size.toFloat()
             tvExamName.text = nombre
             mostrarPregunta()
-            setearTiempo(tiempo.toLong())
+            setearTiempo()
             mProgressBar.dismiss()
 
         }
@@ -210,7 +208,30 @@ class ExamActivity : AppCompatActivity() {
         }
     }
 
-    private fun setearTiempo(toLong: Long) {
+    private fun setearTiempo() {
+        val tiempomio = tiempo.toLong()
+        txtvCronometro
+        var segundos =  tiempomio*1000
+        var minutos= tiempomio*60*1000
+        var horas = tiempomio*60*60*1000
+        var tiempoMiliSegundos = segundos+minutos
+
+        object: CountDownTimer(tiempoMiliSegundos,1000){
+            override fun onFinish() {
+                finishExam()
+                this.cancel()
+            }
+
+            override fun onTick(milisUntilFinished:Long) {
+                var tiempoSegundos =(milisUntilFinished/1000).toInt()
+                val horas=tiempoSegundos/3600
+                tiempoSegundos=tiempoSegundos%3600
+                val minutos = tiempoSegundos/60
+                tiempoSegundos = tiempoSegundos%60
+                txtvCronometro.text=horas.toString().padStart(2,'0')+":"+ minutos.toString().padStart(2,'0')+": "+ tiempoSegundos.toString().padStart(2,'0')
+                Log.d("", txtvCronometro.text.toString())
+            }
+        }.start()
 
     }
 
