@@ -30,7 +30,7 @@ class ExamDetails : Fragment(), AdapterDetail.OnRegistroClickListener {
     lateinit var adapterDetail: AdapterDetail
     lateinit var eTNombre: EditText
     lateinit var spTiempo: Spinner
-
+    private lateinit var btnMostrarResultados: Button
     lateinit var btnGuardarCambios: Button
 
     var idExam: String = ""
@@ -50,6 +50,10 @@ class ExamDetails : Fragment(), AdapterDetail.OnRegistroClickListener {
         recyclerView = view.findViewById(R.id.detail_recyclerView)
         eTNombre = view.findViewById(R.id.eTNombreExam)
         spTiempo = view.findViewById(R.id.spTiempoExam)
+        btnMostrarResultados = view.findViewById(R.id.btnMostrarResultados)
+        btnMostrarResultados.setOnClickListener {
+            moverAStudentList()
+        }
         btnGuardarCambios = view.findViewById(R.id.btnGuardarCambiosExamen)
         btnGuardarCambios.setOnClickListener {
             guardarCambios()
@@ -60,6 +64,16 @@ class ExamDetails : Fragment(), AdapterDetail.OnRegistroClickListener {
         return view
         // Inflate the layout for this fragment
 
+    }
+
+    private fun moverAStudentList() {
+        val studentList = StudentsList()
+        val args = Bundle()
+        args.putString("IDEXAMEN", idExam)
+        studentList.arguments = args
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.frameLayout, studentList)
+            .commit()
     }
 
     private fun guardarCambios() {

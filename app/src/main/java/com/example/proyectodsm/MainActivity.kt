@@ -111,14 +111,14 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onBackPressed() {
-
-            val builder = AlertDialog.Builder(this)
-            builder.setMessage("¿Estás seguro que quieres salir?")
-                .setCancelable(false)
-                .setPositiveButton("Salir") { _, _ -> finish() }
-                .setNegativeButton("Cancelar") { dialog, _ -> dialog.cancel() }
-            val alert = builder.create()
-            alert.show()
+        super.onBackPressed()
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("¿Estás seguro que quieres salir?")
+            .setCancelable(false)
+            .setPositiveButton("Salir") { _, _ -> finish() }
+            .setNegativeButton("Cancelar") { dialog, _ -> dialog.cancel() }
+        val alert = builder.create()
+        alert.show()
 
     }
 }
