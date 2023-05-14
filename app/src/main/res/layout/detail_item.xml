@@ -2,32 +2,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:id="@+id/exam_item"
-    >
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="7dp"
-        android:background="#8792A1"
-        android:gravity="center">
+        android:layout_height="70dp"
+        android:layout_margin="7dp">
 
         <LinearLayout
-            android:layout_width="175dp"
+            android:layout_width="225dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="12dp"
             android:layout_marginStart="25dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvTituloExam"
+                android:id="@+id/tvTitulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:text=""
                 android:textSize="15sp"
-                android:text="Control de lectura 1"
-                android:textColor="@color/white" />
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvRes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="" />
         </LinearLayout>
 
         <LinearLayout
@@ -37,21 +38,13 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnDetalle"
+                android:id="@+id/btnEditar"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:backgroundTint="#D9D9D9"
-                android:drawableLeft="@drawable/alert" />
-
-            <Button
-                android:id="@+id/btnEliminar"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:backgroundTint="#D9D9D9"
-                android:drawableLeft="@drawable/delete" />
+                android:backgroundTint="@color/white"
+                android:drawableLeft="@drawable/edit" />
         </LinearLayout>
-    </RelativeLayout>
 
+    </RelativeLayout>
 </LinearLayout>

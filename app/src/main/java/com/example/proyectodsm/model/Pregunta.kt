@@ -1,6 +1,7 @@
 package com.example.proyectodsm.model
 
 data class Pregunta(
+    val idPregunta: String?,
     val oA: String?,
     val oB: String?,
     val oC: String?,

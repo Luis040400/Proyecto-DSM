@@ -1,5 +1,6 @@
 package com.example.proyectodsm.login
 
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import com.example.proyectodsm.MainActivity
@@ -16,74 +18,60 @@ import com.google.firebase.auth.FirebaseAuth
 class LoginMaestro : AppCompatActivity() {
 
 
-    private lateinit var  auth: FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
-
-
+    private lateinit var progressBar: ProgressDialog
+    lateinit var txtUsername: EditText
+    lateinit var txtPassword: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_maestro)
 
-
+        txtUsername = findViewById(R.id.txtUsuario)
+        txtPassword = findViewById(R.id.txtPassword)
         //instancias del objeto auth
         auth = FirebaseAuth.getInstance()
-
-
-
+        progressBar = ProgressDialog(this)
 
         val btnIniciarSecion = findViewById<Button>(R.id.btnIniciarSesion)
         btnIniciarSecion.setOnClickListener {
-
-            val txtUsername = findViewById<EditText>(R.id.txtUsuario).text.toString()
-            val txtPassword = findViewById<EditText>(R.id.txtPassword).text.toString()
-            login(txtUsername, txtPassword)
-
-
+            login()
         }
-
         val olvidarPassword = findViewById<TextView>(R.id.txtvpassolvidada)
         olvidarPassword.setOnClickListener {
-            val txtUsername = findViewById<EditText>(R.id.txtUsuario).text.toString()
-
-            ReestablecerPassword(txtUsername)
-
+            ReestablecerPassword()
         }
-
 
     }
-
-
-    private fun login(email:String, password:String)
-    {
-        if(email=="" || password=="")
-        {
-            Toast.makeText(this, "Campos Vacios", Toast.LENGTH_LONG).show()
-        }
-        else
-        {
-            if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
-            {
-                Toast.makeText(this, "E-mail invalido", Toast.LENGTH_LONG).show()
-            }
-            auth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
-                if(task.isSuccessful){
-                    val intent = Intent(this,MainActivity::class.java)
-                    startActivity(intent)
+    private fun login() {
+        if(txtUsername.text.toString().isEmpty() || txtPassword.text.toString().isEmpty()){
+            txtUsername.error="Campo requerido"
+            txtPassword.error = "Campo requerido"
+        }else{
+            if(!Patterns.EMAIL_ADDRESS.matcher(txtUsername.text.toString().trim()).matches()){
+                txtUsername.error="Correo no válido"
+            }else{
+                progressBar.setMessage("Autenticando")
+                progressBar.show()
+                auth.signInWithEmailAndPassword(txtUsername.text.toString(), txtPassword.text.toString()).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        progressBar.hide()
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                    }
+                    clear()
+                }.addOnFailureListener { exception ->
+                    progressBar.hide()
+                    Toast.makeText(this, "Error al iniciar $exception", Toast.LENGTH_LONG).show()
                 }
-                clear()
-
-            }.addOnFailureListener { exception ->
-                Toast.makeText(this, "Error al iniciar, Revisa tus credenciales", Toast.LENGTH_LONG).show()
             }
         }
-
-
     }
 
-    private fun ReestablecerPassword(email:String)
+    private fun ReestablecerPassword()
     {
-        auth.sendPasswordResetEmail(email).addOnCompleteListener{ task ->
+        auth.sendPasswordResetEmail(txtUsername.text.toString().trim()).addOnCompleteListener{ task ->
             if(task.isSuccessful)
             {
                 Toast.makeText(this, "Revisa tu correo", Toast.LENGTH_LONG).show()
@@ -96,12 +84,9 @@ class LoginMaestro : AppCompatActivity() {
 
     }
     private fun clear(){
-        val txtUsername = findViewById<EditText>(R.id.txtUsuario)
-        val txtPassword = findViewById<EditText>(R.id.txtPassword)
         txtUsername.setText("")
         txtPassword.setText("")
     }
-
 
     override fun onBackPressed() {
         super.onBackPressed()

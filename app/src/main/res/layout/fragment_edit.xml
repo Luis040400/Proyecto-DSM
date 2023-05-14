@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateExamFragment">
+    tools:context=".EditFragment">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -11,12 +11,12 @@
 
         <!-- TODO: Update blank fragment layout -->
         <TextView
-            android:id="@+id/tvTitulo"
+            android:id="@+id/tvEditTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="Pregunta"
+            android:text="Editar"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -39,29 +39,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Titulo examen" />
-
-                <EditText
-                    android:id="@+id/eTNombreExamen"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:hint="Nombre del examen"
-                    android:inputType="text|textShortMessage"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:text="Tipo de pregunta" />
 
                 <Spinner
-                    android:id="@+id/spTipoExamen"
+                    android:id="@+id/spTEditipoExamen"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:entries="@array/tipo_examen" />
@@ -79,7 +60,7 @@
                     android:text="Ingrese la pregunta" />
 
                 <EditText
-                    android:id="@+id/eTPregunta"
+                    android:id="@+id/eTEditPregunta"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:hint="Pregunta"
@@ -87,43 +68,84 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/opcionMultipleContenedor"
+                android:id="@+id/respuestasMultiple"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"
                 android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Posible respuesta" />
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Opción A" />
 
                     <EditText
-                        android:id="@+id/eTPosibleRespuesta"
-                        android:layout_width="280dp"
+                        android:id="@+id/eToptionA"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:hint="Posible respuesta" />
-
-                    <Button
-                        android:id="@+id/btnAgregar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="+"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:hint="Opción A" />
                 </LinearLayout>
-                <ListView
-                    android:id="@+id/listView"
-                    android:layout_width="match_parent"
-                    android:layout_height="230dp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Opción B" />
+
+                    <EditText
+                        android:id="@+id/eToptionB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Opción B" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Opción C" />
+
+                    <EditText
+                        android:id="@+id/eToptionC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Opción C" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Opción D" />
+
+                    <EditText
+                        android:id="@+id/eToptionD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Opción D" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -138,7 +160,7 @@
                     android:text="Respueta correcta" />
 
                 <EditText
-                    android:id="@+id/eTRespuestaCorrecta"
+                    android:id="@+id/eTEditRespuestaCorrecta"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Ingrese la respuesta correcta" />
@@ -151,19 +173,11 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btnGuardar"
+                    android:id="@+id/btnGuardarCambios"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#1D64C2"
-                    android:text="Agregar pregunta" />
-
-                <Button
-                    android:id="@+id/btnCrearExamen"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#1D64C2"
-                    android:text="Guardar examen"
-                    android:visibility="gone" />
+                    android:text="Guardar Cambios" />
             </LinearLayout>
 
 
