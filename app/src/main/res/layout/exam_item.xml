@@ -24,9 +24,8 @@
                 android:id="@+id/tvTituloExam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autoSizeMaxTextSize="45sp"
-                android:autoSizeMinTextSize="18sp"
-                android:autoSizeTextType="uniform"
+                android:padding="5dp"
+                android:textSize="15sp"
                 android:text="Control de lectura 1"
                 android:textColor="@color/white" />
         </LinearLayout>

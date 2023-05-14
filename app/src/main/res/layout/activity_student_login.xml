@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3A3939"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".StudentLogin">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="309dp"
+        android:layout_height="77dp"
+        android:gravity="center_horizontal"
+        android:text="UDB Test"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="#FFFFFF" />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="463dp"
+        android:background="@drawable/roundviews"
+        android:backgroundTint="#FFFFFF"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="178dp"
+                android:layout_height="35dp"
+                android:gravity="center_horizontal"
+                android:text="Nombre Del Estudiante:" />
+
+            <EditText
+                android:id="@+id/studentName"
+                android:layout_width="232dp"
+                android:layout_height="52dp"
+                android:background="@drawable/roundtxt"
+                android:backgroundTint="#BDBCBC"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="178dp"
+                android:layout_height="35dp"
+                android:gravity="center_horizontal"
+                android:text="Codigo De Examen:" />
+
+            <EditText
+                android:id="@+id/codeExam"
+                android:layout_width="232dp"
+                android:layout_height="52dp"
+                android:background="@drawable/roundtxt"
+                android:backgroundTint="#BDBCBC"
+                android:ems="10"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:gravity="center_horizontal"
+            android:onClick='.Pantalla_Onclick'
+            android:text="Comenzar Examen"
+            tools:ignore="OnClick" />
+    </LinearLayout>
+</LinearLayout>

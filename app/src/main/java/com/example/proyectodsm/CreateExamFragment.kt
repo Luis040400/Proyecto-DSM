@@ -12,7 +12,9 @@ import android.view.WindowManager
 import android.widget.*
 import com.example.proyectodsm.Adapter.AdapterHome
 import com.example.proyectodsm.model.Exams
+import com.example.proyectodsm.model.ListResults
 import com.example.proyectodsm.model.Pregunta
+import com.example.proyectodsm.model.Results
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -47,6 +49,7 @@ class CreateExamFragment(val preguntas: Int, val tiempo: Int) : Fragment() {
     lateinit var selectedItem: String
     val database = FirebaseDatabase.getInstance()
     val databaseRef = database.reference.child("examenes")
+    val databaseResultRef = database.reference.child("resultados")
     private val preguntasList = mutableListOf<Pregunta>()
     private lateinit var auth: FirebaseAuth
     private var number = 1
@@ -97,8 +100,9 @@ class CreateExamFragment(val preguntas: Int, val tiempo: Int) : Fragment() {
     private fun crearExamen() {
         mProgressBar.setMessage("Creando examen")
         mProgressBar.show()
+        val uuid = UUID.randomUUID().toString()
         val examen = Exams(
-            UUID.randomUUID().toString(),
+            uuid,
             eTNombreExamen.text.toString(),
             preguntasList,
             user.uid,
@@ -113,14 +117,22 @@ class CreateExamFragment(val preguntas: Int, val tiempo: Int) : Fragment() {
                         "Examen guardado exitosamente",
                         Toast.LENGTH_SHORT
                     ).show()
-                    mProgressBar.hide()
+                    val listResults : ArrayList<ListResults> = arrayListOf()
+                    val resultados = Results(
+                        uuid,
+                        eTNombreExamen.text.toString(),
+                        listResults
+                    )
+                    val results = databaseResultRef.push()
+                    results.setValue(resultados)
+                    mProgressBar.dismiss()
                     parentFragmentManager.beginTransaction()
                         .replace(R.id.frameLayout, HomeFragment())
                         .commit()
                     navView.setCheckedItem(R.id.nav_home)
                     parentFragmentManager.popBackStack()
                 } else {
-                    mProgressBar.hide()
+                    mProgressBar.dismiss()
                     Toast.makeText(
                         requireContext(),
                         "Error al agregar el registro ${task.exception}",
@@ -146,8 +158,10 @@ class CreateExamFragment(val preguntas: Int, val tiempo: Int) : Fragment() {
         }
         if (preguntasList.size < preguntas) {
             if (selectedItem == "Selección Multiple") {
-                if (eTPregunta.text.toString().trim().isNotEmpty() || eTRespuestaCorrecta.text.toString().trim()
-                        .isNotEmpty() || eTNombreExamen.text.toString().trim().isNotEmpty() || elements.size < 0
+                if (eTPregunta.text.toString().trim()
+                        .isNotEmpty() || eTRespuestaCorrecta.text.toString().trim()
+                        .isNotEmpty() || eTNombreExamen.text.toString().trim()
+                        .isNotEmpty() || elements.size < 0
                 ) {
 
                     eTNombreExamen.isEnabled = false
@@ -163,9 +177,9 @@ class CreateExamFragment(val preguntas: Int, val tiempo: Int) : Fragment() {
                     )
                     preguntasList.add(pregunta)
                     number += 1
-                    if(number > preguntas) {
+                    if (number > preguntas) {
                         tvTitulo.text = "Crear examen"
-                    }else{
+                    } else {
                         tvTitulo.text = "Pregunta $number"
                     }
                     eTPregunta.text.clear()
@@ -181,14 +195,20 @@ class CreateExamFragment(val preguntas: Int, val tiempo: Int) : Fragment() {
                     ) eTRespuestaCorrecta.error = "Campo requerido"
                     if (eTPregunta.text.toString().trim().isEmpty()) eTPregunta.error =
                         "Campo requerido"
-                    if(eTNombreExamen.text.toString().trim().isEmpty()) eTNombreExamen.error="Campo requerido"
-                    if(elements.size<0) Toast.makeText(requireContext(),"No se han agregado respuestas",Toast.LENGTH_SHORT).show()
+                    if (eTNombreExamen.text.toString().trim().isEmpty()) eTNombreExamen.error =
+                        "Campo requerido"
+                    if (elements.size < 0) Toast.makeText(
+                        requireContext(),
+                        "No se han agregado respuestas",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
             } else if (selectedItem == "Verdadero o Falso") {
                 if (eTPregunta.text.toString().trim()
                         .isNotEmpty() || eTRespuestaCorrecta.text.toString().trim()
-                        .isNotEmpty() || eTNombreExamen.text.toString().trim().isNotEmpty() || eTNombreExamen.text.toString().trim().isNotEmpty()
+                        .isNotEmpty() || eTNombreExamen.text.toString().trim()
+                        .isNotEmpty() || eTNombreExamen.text.toString().trim().isNotEmpty()
                 ) {
 
                     eTNombreExamen.isEnabled = false
@@ -209,9 +229,9 @@ class CreateExamFragment(val preguntas: Int, val tiempo: Int) : Fragment() {
                     )
                     preguntasList.add(pregunta)
                     number += 1
-                    if(number > preguntas) {
+                    if (number > preguntas) {
                         tvTitulo.text = "Crear examen"
-                    }else{
+                    } else {
                         tvTitulo.text = "Pregunta $number"
                     }
                     eTPregunta.text.clear()
@@ -225,8 +245,13 @@ class CreateExamFragment(val preguntas: Int, val tiempo: Int) : Fragment() {
                     ) eTRespuestaCorrecta.error = "Campo requerido"
                     if (eTPregunta.text.toString().trim().isNotEmpty()) eTPregunta.error =
                         "Campo requerido"
-                    if(eTNombreExamen.text.toString().trim().isEmpty()) eTNombreExamen.error="Campo requerido"
-                    if(elements.size<0) Toast.makeText(requireContext(),"No se han agregado respuestas",Toast.LENGTH_SHORT).show()
+                    if (eTNombreExamen.text.toString().trim().isEmpty()) eTNombreExamen.error =
+                        "Campo requerido"
+                    if (elements.size < 0) Toast.makeText(
+                        requireContext(),
+                        "No se han agregado respuestas",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
